@@ -226,6 +226,23 @@
   .my-status b { color: var(--accent3); }
   .my-status small { font-size: 11px; color: var(--text-muted); }
   .my-status .study-btn { margin-left: auto; }
+  /* 자습실 자리 (dshs.app 자습 좌석). 누르면 dshs.app 좌석 배치도에서 그 자리로 */
+  .st-seat { color: inherit; font-weight: 700; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
+  .st-chip { white-space: nowrap; }
+  .my-status .st-chip { font-size: 12.5px; color: var(--accent3); }
+  /* 자습실 자리 공개 동의 창 */
+  .seat-ask ul { margin: 10px 0 0; padding-left: 18px; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+  .seat-modal { z-index: 1100; }   /* 수업 팝업(1000) 위 */
+  .seat-sheet { max-width: 640px; }
+  .seat-scroll { overflow-x: auto; margin: 4px -4px 14px; border-radius: 12px; -webkit-overflow-scrolling: touch; }
+  .seat-stage { position: relative; max-width: none; }
+  .seat-stage img { display: block; width: 100%; height: auto; border-radius: 12px; }
+  .seat-pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 3px solid #ff3b5c;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.85), 0 0 14px rgba(255,59,92,0.8); animation: seatPulse 1.4s ease-in-out infinite; pointer-events: none; }
+  @keyframes seatPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  .seat-out { display: block; text-align: center; text-decoration: none; }
+  .ms-note { flex-basis: 100%; font-size: 11.5px; color: var(--text-muted); text-decoration: none; }
+  .ms-relink { flex-basis: 100%; text-align: left; background: none; border: none; padding: 0; font: inherit; font-size: 11.5px; color: var(--text-muted); text-decoration: underline; cursor: pointer; }
   .place-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .place-opts .study-btn { padding: 12px 8px; }
   .place-custom { display: flex; gap: 8px; }
@@ -373,6 +390,7 @@
   .st-badge { font-size: 11px; font-weight: 400; color: var(--text-muted); }
   .asg-title { font-size: 14.5px; font-weight: 700; line-height: 1.45; }
   .asg-body { font-size: 12.5px; color: var(--text-dim); line-height: 1.7; margin-top: 6px; white-space: pre-wrap; }
+  .asg-body.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .asg-due { display: flex; align-items: baseline; gap: 8px; font-size: 12px; color: var(--text-dim); margin-top: 8px; }
   .asg-by { margin-left: auto; font-family: 'Noto Sans KR', sans-serif; font-size: 10.5px; color: var(--text-muted); opacity: 0.85; white-space: nowrap; }
   .asg-actions { display: flex; gap: 7px; margin-top: 11px; }
@@ -398,6 +416,13 @@
   .study-err { display: none; color: #fca5a5; font-size: 12px; margin-top: 10px; line-height: 1.6; }
   .study-err.show { display: block; }
   .study-foot { font-size: 11.5px; color: var(--text-muted); line-height: 1.7; margin-top: 12px; text-align: center; }
+  /* 공부 탭: 과목 고르기 + 단어장(vocab.html) */
+  .learn-subjects .study-btn { flex: 1 1 auto; }
+  .learn-frame { display: block; width: 100%; min-height: 420px; border: 0; background: transparent; margin-top: 6px; }
+  .learn-pick { display: grid; gap: 10px; }
+  .learn-card { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+  .learn-card .study-sub { display: block; margin-top: 2px; }
+  .learn-emoji { font-size: 26px; line-height: 1; }
   .study-submit.dshs-login { margin-top: 4px; }
   .auth-admin { display: block; margin: 18px auto 0; padding: 6px 10px; background: none; border: none; color: var(--text-muted); font: 12px 'Noto Sans KR', sans-serif; text-decoration: underline; cursor: pointer; }
   .auth-or { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-muted); margin: 16px 0 2px; }
