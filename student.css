@@ -30,8 +30,36 @@
   body.offline .study-nav, body.offline .study-view, body.offline #btnSettings { display: none !important; }
   body.offline.study-open .search-section { display: block; }
   body.offline .offline-note { display: block; }
-  .login-gate { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+  /* 비로그인: 흐린 시간표(gateBg, 아래 paintGateBg 가 채움) 위에 시작하기 카드 */
+  .login-gate { position: relative; overflow: hidden; border-radius: 20px; min-height: 460px; text-align: center; color: var(--text-muted); }
+  .gate-bg { position: absolute; inset: 0; padding: 10px; filter: blur(5px); opacity: 0.55; transform: scale(1.05); pointer-events: none; user-select: none; -webkit-user-select: none; }
+  .gate-bg .timetable { width: 100%; }
+  .gate-card { position: relative; max-width: 400px; margin: 72px auto 40px; padding: 26px 20px 18px; border-radius: 18px; border: 1px solid var(--border);
+    background: var(--surface); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+  .gate-card .welcome-icon { margin-bottom: 10px; }
   .login-gate .study-submit { max-width: 260px; }
+  @media (max-width: 480px) { .gate-card { margin: 56px 12px 32px; padding: 22px 16px 14px; } }
+  /* 로그인 직후 안내(dshs-study.js 의 maybeOnboard) · 아이폰 홈 화면 추가 그림 안내(iosGuideHtml) */
+  .onb-step { display: flex; gap: 11px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--border); }
+  .onb-step .ios-num { margin-top: 2px; }
+  .onb-body { flex: 1; min-width: 0; font-size: 14px; }
+  .onb-body .ev-hint { display: block; margin: 2px 0 8px; }
+  .onb-text { font-size: 13px; line-height: 1.6; color: var(--text-dim); }
+  .ig { display: flex; flex-direction: column; gap: 10px; margin: 6px 0 4px; }
+  .ig-fig { margin: 0; padding: 8px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+  .ig-fig svg { display: block; width: 100%; height: auto; max-height: 120px; }
+  .ig-fig figcaption { display: flex; gap: 8px; align-items: flex-start; margin-top: 6px; font-size: 12.5px; line-height: 1.55; color: var(--text-dim); text-align: left; }
+  .ig-fig figcaption b { color: var(--text); }
+  .ig-bg { fill: var(--surface); stroke: var(--border); }
+  .ig-hirow { fill: var(--glow); stroke: var(--accent1); stroke-width: 1.5; }
+  .ig-ic { fill: none; stroke: var(--text-dim); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .ig-ic.ig-hi { stroke: var(--accent1); stroke-width: 2.2; }
+  .ig-ring { fill: none; stroke: var(--accent1); stroke-width: 2; stroke-dasharray: 4 3; }
+  .ig-t { fill: var(--text); font-size: 12px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; }
+  .ig-dim { fill: var(--text-muted); font-size: 11px; font-family: 'Noto Sans KR', sans-serif; }
+  .ig-hit { fill: var(--accent1); font-size: 12px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; }
+  .ig-icon { fill: var(--accent1); }
+  .ig-icon-t { fill: #fff; font-size: 12px; font-weight: 800; font-family: 'Noto Sans KR', sans-serif; }
   .offline-note { margin-bottom: 12px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--text-dim); font-size: 13px; text-align: center; }
   .search-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; }
   .search-row { display: flex; gap: 12px; align-items: stretch; }
